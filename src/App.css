@@ -1,0 +1,41 @@
+body {
+	font-size: 16px;
+}
+
+.app {
+	text-align: center;
+	user-select: none; /* no text select */
+	height: 100vh;
+}
+
+.app-intro {
+  font-size: large;
+}
+
+ul {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+li {
+	display: inline-block;
+	padding: 8px;
+	background: honeydew;
+	margin: 4px 2px 4px 2px;
+	border-radius: 10px;
+	border: 1px solid #aaa;
+}
+li a {
+	text-decoration: none;
+	color: coral;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+li a:hover {
+	color: chocolate;
+}
+
+button {
+	padding: 10px;
+}

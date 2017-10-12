@@ -1,0 +1,35 @@
+@keyframes app-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.app-header {
+  background-color: #222;
+  padding: 10px;
+  color: white;
+}
+
+.app-logo {
+  animation: app-logo-spin infinite 20s linear;
+	height: 60px;
+	align-self: center;
+}
+
+.app-name {
+	font-size: 2rem;
+	font-weight: bold;
+	align-self: center;
+}
+
+@supports (display: grid) {
+	.app-header {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.app-logo {
+		height: 80px;
+	}
+}
