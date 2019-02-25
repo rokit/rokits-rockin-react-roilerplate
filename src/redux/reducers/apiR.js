@@ -1,25 +1,30 @@
 import { fromJS } from 'immutable'
 
-import {
-	REQUEST_POSTS,
-	RECEIVE_POSTS
-} from '../actions/apiActions'
+import Actions from '../actions/apiA'
 
 var initialState = {
 	requesting: false,
-	posts: []
+	posts: [],
+	msg: ""
 }
 
 var immutableState = fromJS(initialState)
 
 const apiReducer = (state = immutableState, action) => {
 	switch(action.type) {
-		case REQUEST_POSTS: {
+		case Actions.REQUEST_POSTS: {
+			state = state.set('msg', '')
 			return state.set('requesting', true)
 		}
-		case RECEIVE_POSTS: {
+		case Actions.RECEIVE_POSTS: {
 			state = state.set('posts', action.posts)
 			state = state.set('requesting', false)
+			state = state.set('msg', '')
+			return state
+		}
+		case Actions.RECEIVE_POSTS_FAILED: {
+			state = state.set('requesting', false)
+			state = state.set('msg', action.msg)
 			return state
 		}
 		default: {

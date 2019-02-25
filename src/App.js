@@ -28,7 +28,6 @@ class App extends Component {
 
 	handleButtonClick = () => {
 		// programmatically change the route
-		// redux still handles the history
 		this.props.history.push('/reddit-posts')
 		this.props.fetchPosts('reactjs')
 	}
@@ -45,10 +44,12 @@ class App extends Component {
 						Click anywhere to dispatch a redux action that will increment the counter by one.
 					</p>
 					<h2>Counter: {this.props.counter}</h2>
-					<ul>
-						<li><Link to="/">Home</Link></li>
-						<li><Link to="/about">About</Link></li>
-					</ul>
+					<nav>
+						<ul>
+							<li><Link to="/">Home</Link></li>
+							<li><Link to="/about">About</Link></li>
+						</ul>
+					</nav>
 
 					<button onClick={this.handleButtonClick}>Programmatically push to a different page. This is not a link.</button>
 
@@ -56,7 +57,7 @@ class App extends Component {
 						<Route exact path="/" component={Home} />
 						<Route path="/about" component={About} />
 						<Route exact path="/reddit-posts" render={()=>
-							<RedditPosts posts={posts} requesting={this.props.api.get('requesting')} />} />
+							<RedditPosts posts={posts} requesting={this.props.api.get('requesting')} msg={this.props.api.get('msg')}/>} />
 						<Route component={NotFound} />
 					</Switch>
 				</div>
@@ -73,7 +74,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actions, dispatch)
 }
 

@@ -10,6 +10,7 @@ class RedditPosts extends Component {
 			<div className="content">
 				<h1>Reddit Posts</h1>
 				{content}
+				<p>{this.props.msg}</p>
 			</div>
 		)
 	}
