@@ -27,5 +27,7 @@ export const fetchPosts = subreddit => dispatch => {
 	.then(data => {
 		dispatch(receivePosts(subreddit, data))
 	})
-	.catch(error => dispatch({type: Actions.RECEIVE_POSTS_FAILED, msg: `${error}`}))
+	.catch(error => {
+		dispatch({type: Actions.RECEIVE_POSTS_FAILED, msg: `${error}`})
+	})
 }
